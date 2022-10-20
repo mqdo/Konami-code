@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://www.cornify.com/js/cornify.js"></script>
+  <title>Choose a day of the week (full word)</title>
+</head>
+<body>
+  <h1 style="text-align: center">Choose a day of the week (full word)</h1>
+  <script>
+    const weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    const sequence = [];
+    const keyword = weekdays[Math.floor(Math.random()*weekdays.length)];
+    console.log(keyword);
+    window.addEventListener("keyup", (e) => {
+      sequence.push(e.key);
+      sequence.splice(-keyword.length - 1, sequence.length - keyword.length);
+      if (sequence.join("") === keyword) {
+        document.querySelector("h1").innerText = "Congratulations!";
+        cornify_add();
+      }
+    })
+  </script>
+</body>
+</html>
